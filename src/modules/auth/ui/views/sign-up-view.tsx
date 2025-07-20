@@ -12,6 +12,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa"
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -140,24 +141,24 @@ export const SignUpView = () => {
                   />
 
                   <div className="grid gap-3">
-                  <FormField
-                    control={form.control}
-                    name="confirmPassword"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Confirm Passowrd</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="password"
-                            placeholder="********"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
+                    <FormField
+                      control={form.control}
+                      name="confirmPassword"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Confirm Passowrd</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="password"
+                              placeholder="********"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
                 </div>
 
@@ -184,11 +185,14 @@ export const SignUpView = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <Button type="button" variant={"outline"} className="w-full">
-                    Google
+                    <FaGoogle />
                   </Button>
 
-                  <Button type="button" variant={"outline"} className="w-full">
-                    Github
+                  <Button type="button"
+                    variant={"outline"}
+                    className="w-full cursor-pointer"
+                    onClick={() => { authClient.signIn.social({ provider: "github" }) }}>
+                    <FaGithub />
                   </Button>
                 </div>
 
