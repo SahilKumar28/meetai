@@ -23,7 +23,8 @@ export const HomeView = () => {
         fetchOptions: {
           onSuccess: () => router.push("/auth/sign-in")
         }
-      })}>
+      })} className="w-full"
+      >
         Sign out
       </Button>
     </div>
