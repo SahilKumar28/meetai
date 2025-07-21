@@ -15,7 +15,7 @@ const Page = async() => {
   }
 
   return (
-    <HomeView/>
+    <HomeView />
   )
 }
 
