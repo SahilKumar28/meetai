@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth"
-import { HomeView } from "./home/ui/views/homeView"
+import { HomeView } from "../../modules/home/ui/views/homeView"
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 
